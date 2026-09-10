@@ -9,6 +9,7 @@ import Section6Moments from "./components/Section6Moments";
 import SectionForm from "./components/SectionForm";
 import SectionFAQ from "./components/SectionFAQ";
 import Footer from "./components/Footer";
+import RevealOnScroll from "./components/RevealOnScroll";
 
 export default function Home() {
   return (
@@ -18,36 +19,54 @@ export default function Home() {
 
       {/* Main Content Area: Default background is 100% white */}
       <main className="flex-1 w-full bg-white">
-        {/* 2. Hero Banner */}
+        {/* 2. Hero Banner (có hiệu ứng entrance text riêng) */}
         <HeroBanner />
 
         {/* 3. Section 1: Giới thiệu du thuyền Calista & Trải nghiệm */}
-        <Section1Intro />
+        <RevealOnScroll>
+          <Section1Intro />
+        </RevealOnScroll>
 
         {/* 4. Section 2: Hải trình du thuyền Vịnh Hạ Long */}
-        <Section2Itinerary />
+        <RevealOnScroll>
+          <Section2Itinerary />
+        </RevealOnScroll>
 
         {/* 5. Section 3: Hệ thống hạng phòng nghỉ trên du thuyền */}
-        <Section3Rooms />
+        <RevealOnScroll>
+          <Section3Rooms />
+        </RevealOnScroll>
 
         {/* 6. Section 4: Cảm nhận từ quý khách hàng */}
-        <Section4Reviews />
+        <RevealOnScroll>
+          <Section4Reviews />
+        </RevealOnScroll>
 
         {/* 7. Section 5: Lên kế hoạch cho chuyến du lịch Vịnh Hạ Long */}
-        <Section5Plan />
+        <RevealOnScroll>
+          <Section5Plan />
+        </RevealOnScroll>
 
         {/* 8. Section 6: Thư viện cùng chia sẻ khoảnh khắc */}
-        <Section6Moments />
+        <RevealOnScroll>
+          <Section6Moments />
+        </RevealOnScroll>
 
         {/* 9. Section Form: Đăng kí nhận thông tin ưu đãi */}
-        <SectionForm />
+        <RevealOnScroll>
+          <SectionForm />
+        </RevealOnScroll>
 
         {/* 10. Section FAQ: Câu hỏi thường gặp */}
-        <SectionFAQ />
+        <RevealOnScroll>
+          <SectionFAQ />
+        </RevealOnScroll>
       </main>
 
       {/* 11. Footer: Chân trang đầy đủ thông tin văn phòng và mạng xã hội */}
-      <Footer />
+      <RevealOnScroll>
+        <Footer />
+      </RevealOnScroll>
     </div>
   );
 }
