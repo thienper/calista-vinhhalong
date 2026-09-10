@@ -235,10 +235,10 @@ export default function Section2Itinerary() {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 select-text">
         {/* Header */}
         <div className="mb-10 text-left select-text">
-          <span className="text-xs sm:text-[13px] font-semibold tracking-[0.25em] text-slate-800 uppercase mb-2 block select-text">
+          <span className="text-[16px] font-semibold tracking-[0.25em] text-slate-800 uppercase mb-2 block select-text">
             LỰA CHỌN
           </span>
-          <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-[46px] leading-tight font-normal heading-gradient select-text">
+          <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-[48px] leading-tight font-normal heading-gradient select-text">
             HẢI TRÌNH DU THUYỀN VỊNH HẠ LONG
           </h2>
         </div>
@@ -311,17 +311,17 @@ export default function Section2Itinerary() {
                 }`}
               >
                 <h3
-                  className={`font-serif-luxury uppercase tracking-wider mb-3 transition-all duration-500 ${
+                  className={`font-serif-luxury font-normal leading-tight mb-3 transition-all duration-500 ${
                     isCenter
-                      ? "text-3xl sm:text-4xl lg:text-5xl drop-shadow-md select-text"
-                      : "text-2xl sm:text-3xl text-white/95"
+                      ? "text-2xl sm:text-3xl lg:text-[36px] drop-shadow-md select-text"
+                      : "text-xl sm:text-2xl text-white/95"
                   }`}
                 >
                   {item.title}
                 </h3>
 
                 <p
-                  className={`text-white/90 text-xs sm:text-sm leading-relaxed max-w-xl mb-5 font-light transition-all duration-500 ${
+                  className={`text-white/90 text-sm sm:text-[16px] leading-relaxed max-w-xl mb-5 font-light transition-all duration-500 ${
                     isCenter ? "line-clamp-4" : "line-clamp-3"
                   }`}
                 >
@@ -329,10 +329,10 @@ export default function Section2Itinerary() {
                 </p>
 
                 <div className="mb-6">
-                  <p className="text-white font-semibold text-xs sm:text-sm mb-2">
+                  <p className="text-white font-semibold text-sm sm:text-[16px] mb-2">
                     Điểm nổi bật trong hành trình:
                   </p>
-                  <ul className="space-y-1 text-xs sm:text-sm text-white/90 font-light">
+                  <ul className="space-y-1.5 text-sm sm:text-[16px] text-white/90 font-light">
                     {(isCenter
                       ? item.highlights
                       : item.highlights.slice(0, 3)

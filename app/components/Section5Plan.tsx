@@ -84,10 +84,10 @@ export default function Section5Plan() {
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Header Centered */}
         <div className="text-center max-w-4xl mx-auto mb-14">
-          <span className="text-xs sm:text-[13px] font-semibold tracking-[0.25em] text-slate-800 uppercase mb-2 block">
+          <span className="text-[16px] font-semibold tracking-[0.25em] text-slate-800 uppercase mb-2 block">
             LÊN KẾ HOẠCH
           </span>
-          <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-[46px] leading-tight font-normal heading-gradient">
+          <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-[48px] leading-tight font-normal heading-gradient">
             CHO CHUYẾN DU LỊCH VỊNH HẠ LONG
           </h2>
         </div>
@@ -145,7 +145,7 @@ export default function Section5Plan() {
                           : "opacity-0 translate-y-4 delay-0"
                       }`}
                     >
-                      <h3 className="font-serif-luxury text-2xl sm:text-3xl lg:text-[38px] uppercase tracking-wider leading-[1.18] drop-shadow-md">
+                      <h3 className="font-serif-luxury text-2xl sm:text-3xl lg:text-[36px] uppercase tracking-wider leading-[1.18] drop-shadow-md">
                         <span className="block whitespace-nowrap">{card.line1}</span>
                         <span className="block whitespace-nowrap">{card.line2}</span>
                       </h3>

@@ -109,10 +109,10 @@ export default function Section6Moments() {
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Header */}
         <div className="mb-12 text-left">
-          <span className="text-xs sm:text-[13px] font-semibold tracking-[0.25em] text-slate-800 uppercase mb-2 block">
+          <span className="text-[16px] font-semibold tracking-[0.25em] text-slate-800 uppercase mb-2 block">
             THƯ VIỆN
           </span>
-          <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-[46px] leading-tight font-normal heading-gradient">
+          <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-[48px] leading-tight font-normal heading-gradient">
             CÙNG CHIA SẺ KHOẢNH KHẮC
           </h2>
         </div>

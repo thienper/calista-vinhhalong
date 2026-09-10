@@ -41,16 +41,16 @@ export default function Section1Intro() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Heading & Description */}
           <div className="lg:col-span-5 flex flex-col justify-center pt-4">
-            <span className="text-xs sm:text-[13px] font-semibold tracking-[0.25em] text-slate-800 uppercase mb-4 block">
+            <span className="text-[16px] font-semibold tracking-[0.25em] text-slate-800 uppercase mb-4 block">
               DU THUYỀN
             </span>
 
-            <h2 className="font-serif-luxury text-4xl sm:text-5xl lg:text-[54px] leading-[1.12] font-normal mb-8">
+            <h2 className="font-serif-luxury text-4xl sm:text-5xl lg:text-[60px] leading-[1.1] font-normal mb-8">
               <span className="heading-gradient block">CALISTA</span>
               <span className="heading-gradient block">VỊNH HẠ LONG</span>
             </h2>
 
-            <p className="text-slate-600 text-sm sm:text-[15px] leading-relaxed max-w-md font-light">
+            <p className="text-slate-600 text-[16px] leading-relaxed max-w-md font-light">
               Calista Cruise là du thuyền sang trọng phục vụ các chuyến tham quan nghỉ
               đêm trên Vịnh Hạ Long, kết hợp hoàn hảo giữa hệ thống phòng nghỉ rộng
               rãi có ban công riêng, ẩm thực được chăm chút kỹ lưỡng, các tiện nghi
@@ -88,7 +88,7 @@ export default function Section1Intro() {
                   {/* Content for Expanded Card */}
                   {isActive ? (
                     <div className="absolute inset-0 p-6 sm:p-10 flex flex-col justify-end z-10 transition-all duration-300 delay-150 ease-out">
-                      <h3 className="font-serif-luxury text-white text-2xl sm:text-3xl lg:text-[40px] tracking-wider uppercase font-normal drop-shadow-lg leading-tight">
+                      <h3 className="font-serif-luxury text-white text-2xl sm:text-3xl lg:text-[36px] tracking-wider uppercase font-normal drop-shadow-lg leading-tight">
                         {item.title.includes(" ") && item.title.startsWith("TRẢI NGHIỆM") ? (
                           <>
                             TRẢI NGHIỆM

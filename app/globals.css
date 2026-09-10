@@ -1,8 +1,24 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "MTD Balerno";
+  src: local("MTD Balerno"), local("MTDBalerno"), local("Balerno"),
+       url("/fonts/MTD-Balerno.woff2") format("woff2"),
+       url("/fonts/MTD-Balerno.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SVN-Gilroy";
+  src: local("SVN-Gilroy"), local("SVNGilroy"), local("Gilroy"),
+       url("/fonts/SVN-Gilroy.woff2") format("woff2"),
+       url("/fonts/SVN-Gilroy.ttf") format("truetype");
+  font-display: swap;
+}
+
 @theme {
-  --font-serif: var(--font-serif), "Playfair Display", Georgia, serif;
-  --font-sans: var(--font-sans), "Montserrat", system-ui, sans-serif;
+  --font-serif: "MTD Balerno", "Balerno", var(--font-serif), "Playfair Display", Georgia, serif;
+  --font-sans: "SVN-Gilroy", "Gilroy", var(--font-sans), "Montserrat", system-ui, sans-serif;
   --color-brand-blue: #133e70;
   --color-brand-navy: #0f2b4c;
   --color-brand-gold: #dfa968;

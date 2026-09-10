@@ -59,7 +59,7 @@ export default function SectionFAQ() {
     <section className="w-full bg-white py-20 lg:py-28">
       <div className="max-w-4xl mx-auto px-4 sm:px-8">
         {/* Title */}
-        <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-[44px] text-center uppercase tracking-wider text-[#163b65] font-normal mb-14">
+        <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-[48px] text-center uppercase tracking-wider text-[#163b65] font-normal mb-14">
           CÂU HỎI THƯỜNG GẶP
         </h2>
 
@@ -77,7 +77,7 @@ export default function SectionFAQ() {
                   onClick={() => toggleFAQ(faq.id)}
                   className="w-full flex items-center justify-between text-left gap-4 cursor-pointer group"
                 >
-                  <span className="font-semibold text-sm sm:text-[15px] text-[#163b65] group-hover:text-[#dfa968] transition-colors leading-snug">
+                  <span className="font-semibold text-sm sm:text-[16px] text-[#163b65] group-hover:text-[#dfa968] transition-colors leading-snug">
                     {faq.question}
                   </span>
                   <span className="text-[#163b65] group-hover:text-[#dfa968] transition-colors shrink-0">
@@ -94,7 +94,7 @@ export default function SectionFAQ() {
                   className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-40 opacity-100 mt-3" : "max-h-0 opacity-0"
                     }`}
                 >
-                  <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed font-light pr-8">
+                  <p className="text-slate-600 text-sm sm:text-[16px] leading-relaxed font-light pr-8">
                     {faq.answer}
                   </p>
                 </div>

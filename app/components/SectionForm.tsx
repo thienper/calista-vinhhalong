@@ -63,15 +63,15 @@ export default function SectionForm() {
 
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-8 text-center text-white">
         {/* Subtitle & Title */}
-        <span className="text-xs sm:text-[13px] font-semibold tracking-[0.25em] text-blue-200 uppercase mb-3 block">
+        <span className="text-[16px] font-semibold tracking-[0.25em] text-blue-200 uppercase mb-3 block">
           ĐĂNG KÍ
         </span>
 
-        <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-[46px] uppercase tracking-wider font-normal leading-tight mb-4">
+        <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-[48px] uppercase tracking-wider font-normal leading-tight mb-4">
           NHẬN THÔNG TIN ƯU ĐÃI
         </h2>
 
-        <p className="text-blue-100/90 text-xs sm:text-sm font-light leading-relaxed max-w-xl mx-auto mb-10">
+        <p className="text-blue-100/90 text-sm sm:text-[16px] font-light leading-relaxed max-w-xl mx-auto mb-10">
           Chúng tôi sẽ cập nhập cho bạn những tin tức mới nhất, cẩm nang du lịch và
           các ưu đãi đặc biệt.
         </p>
