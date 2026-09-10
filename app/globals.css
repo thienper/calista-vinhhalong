@@ -1,26 +1,62 @@
 @import "tailwindcss";
 
+@theme {
+  --font-serif: var(--font-serif), "Playfair Display", Georgia, serif;
+  --font-sans: var(--font-sans), "Montserrat", system-ui, sans-serif;
+  --color-brand-blue: #133e70;
+  --color-brand-navy: #0f2b4c;
+  --color-brand-gold: #dfa968;
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1e293b;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html, body {
+  background-color: #ffffff !important;
+  color: #1e293b;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.font-serif-luxury {
+  font-family: var(--font-serif);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Luxury heading gradient: deep navy on left to vibrant ocean blue on right */
+.heading-gradient {
+  background: linear-gradient(90deg, #0e2a4a 0%, #164070 50%, #296fa8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Gold button styling */
+.btn-gold {
+  background-color: #dfa968;
+  color: #ffffff;
+  transition: all 0.25s ease-in-out;
+}
+.btn-gold:hover {
+  background-color: #cb9250;
+  box-shadow: 0 4px 14px rgba(223, 169, 104, 0.35);
+}
+
+/* Navy button styling */
+.btn-navy {
+  background-color: #133e70;
+  color: #ffffff;
+  transition: all 0.25s ease-in-out;
+}
+.btn-navy:hover {
+  background-color: #0d2c52;
+}
+
+/* Hide scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
