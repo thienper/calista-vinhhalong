@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   description: "Calista Cruise là du thuyền sang trọng 6 sao phục vụ các chuyến tham quan nghỉ đêm trên Vịnh Hạ Long.",
 };
 
+import ScrollToTopOnReload from "./components/ScrollToTopOnReload";
+
 export default function RootLayout({
   children,
 }: {
@@ -30,6 +32,7 @@ export default function RootLayout({
       className={`${playfair.variable} ${montserrat.variable} min-h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans bg-white text-slate-800 antialiased selection:bg-amber-100 selection:text-amber-900">
+        <ScrollToTopOnReload />
         {children}
       </body>
     </html>

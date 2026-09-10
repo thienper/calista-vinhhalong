@@ -52,15 +52,19 @@ export default function Section6Moments() {
   const itemRefs = React.useRef<(HTMLDivElement | null)[]>([]);
   const isProgrammaticScroll = React.useRef(false);
 
-  // Smooth scroll to target photo
-  const scrollToItem = (index: number) => {
+  // Smooth scroll to target photo inside the container ONLY (never moving the window scroll)
+  const scrollToItem = (index: number, smooth = true) => {
+    const container = containerRef.current;
     const el = itemRefs.current[index];
-    if (el) {
+    if (container && el) {
       isProgrammaticScroll.current = true;
-      el.scrollIntoView({
-        behavior: "smooth",
-        inline: "center",
-        block: "nearest",
+      const containerWidth = container.clientWidth;
+      const elLeft = el.offsetLeft;
+      const elWidth = el.clientWidth;
+      const targetScrollLeft = elLeft - containerWidth / 2 + elWidth / 2;
+      container.scrollTo({
+        left: targetScrollLeft,
+        behavior: smooth ? "smooth" : "auto",
       });
       setTimeout(() => {
         isProgrammaticScroll.current = false;
@@ -68,12 +72,14 @@ export default function Section6Moments() {
     }
   };
 
-  // Center photo 4 on initial mount on mobile
+  // Center photo 4 on initial mount on mobile ONLY (never touching window scroll)
   React.useEffect(() => {
-    const timer = setTimeout(() => {
-      scrollToItem(4);
-    }, 300);
-    return () => clearTimeout(timer);
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      const timer = setTimeout(() => {
+        scrollToItem(4, false);
+      }, 100);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   // Detect which photo is in the center of the viewport/container during scroll

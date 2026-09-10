@@ -45,11 +45,11 @@ export default function HeroBanner() {
       </div>
 
       {/* Center Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 text-center flex flex-col items-center pb-24 lg:pb-36">
-        <h1 className="font-serif-luxury text-white text-4xl sm:text-6xl md:text-8xl lg:text-[110px] xl:text-[144px] tracking-wider uppercase font-normal drop-shadow-md whitespace-nowrap leading-none">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 text-center flex flex-col items-center pb-24 lg:pb-36 select-text">
+        <h1 className="animate-hero-title font-serif-luxury text-white text-4xl sm:text-6xl md:text-8xl lg:text-[110px] xl:text-[144px] tracking-wider uppercase font-normal drop-shadow-md whitespace-nowrap leading-none select-text">
           SUMMER TRAVEL
         </h1>
-        <p className="text-white text-base sm:text-2xl md:text-3xl lg:text-[38px] xl:text-[48px] font-light mt-3 sm:mt-4 lg:mt-6 tracking-wide drop-shadow-sm whitespace-nowrap leading-tight">
+        <p className="animate-hero-subtitle text-white text-base sm:text-2xl md:text-3xl lg:text-[38px] xl:text-[48px] font-light mt-3 sm:mt-4 lg:mt-6 tracking-wide drop-shadow-sm whitespace-nowrap leading-tight select-text">
           Giảm ngay 500k cho lần đầu đăng ký qua Website
         </p>
       </div>

@@ -13,6 +13,13 @@ interface Room {
 
 const rooms: Room[] = [
   {
+    id: "calista-ocean",
+    name: "CALISTA OCEAN",
+    image: "/image/Home%20-%20s3%20-%20hình%20background.jpg",
+    desc: "Căn phòng ngắm trọn đại dương bao la với cửa kính panorama chạm trần, mang đến sự thư thái tuyệt đối.",
+    features: ["Ban công riêng biệt", "Bồn tắm hướng biển", "1 giường King size", "Trang thiết bị hiện đại"],
+  },
+  {
     id: "calista-bay",
     name: "CALISTA BAY",
     image: "/image/Home%20-%20s3%20-%20hình%20background.jpg",
@@ -45,17 +52,10 @@ const rooms: Room[] = [
     desc: "Lựa chọn lý tưởng cho các gia đình và cặp đôi tìm kiếm sự ấm cúng, sang trọng và riêng tư tuyệt đối.",
     features: ["Ban công kính trực diện vịnh", "Phòng tắm vách kính cao cấp", "Giường King êm ái", "Bữa sáng tại phòng"],
   },
-  {
-    id: "calista-ocean",
-    name: "CALISTA OCEAN",
-    image: "/image/Home%20-%20s3%20-%20hình%20background.jpg",
-    desc: "Căn phòng ngắm trọn đại dương bao la với cửa kính panorama chạm trần, mang đến sự thư thái tuyệt đối.",
-    features: ["Ban công riêng biệt", "Bồn tắm hướng biển", "1 giường King size", "Trang thiết bị hiện đại"],
-  },
 ];
 
 export default function Section3Rooms() {
-  const [activeIndex, setActiveIndex] = useState(2); // Default is CALISTA MAJESTY (index 2)
+  const [activeIndex, setActiveIndex] = useState(2); // Default is CALISTA PRESIDENT (index 2) exactly matching Figma Home - s3.png
   const [windowWidth, setWindowWidth] = useState(1920);
 
   useEffect(() => {
@@ -247,7 +247,7 @@ export default function Section3Rooms() {
       }}
     >
       {/* Light Luxury Glass/White Overlay */}
-      <div className="absolute inset-0 bg-white/88 backdrop-blur-[2px]" />
+      <div className="absolute inset-0 bg-white/75" />
 
       {/* 1. Header Centered: contained within max-w-7xl */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 select-text">
@@ -277,7 +277,7 @@ export default function Section3Rooms() {
         <div
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
-          className="relative w-full h-[660px] sm:h-[680px] flex items-center justify-center touch-pan-y select-text"
+          className="relative w-full h-[670px] sm:h-[690px] flex items-center justify-center touch-pan-y select-text"
         >
           {rooms.map((room, idx) => {
             const diff = idx - activeIndex;
@@ -304,10 +304,10 @@ export default function Section3Rooms() {
               >
                 {isCenter ? (
                   /* ================= Active Expanded Center Card ================= */
-                  <div className="w-full h-full bg-white shadow-2xl overflow-hidden border border-slate-300 flex flex-col rounded-xs select-text">
-                    {/* White Top Header Bar */}
-                    <div className="h-[62px] shrink-0 px-6 flex items-center justify-center bg-white border-b border-slate-100 select-text">
-                      <h3 className="font-serif-luxury text-[#163b65] text-xl sm:text-2xl uppercase tracking-wider font-medium select-text whitespace-nowrap">
+                  <div className="w-full h-full bg-white shadow-2xl overflow-hidden border-2 border-[#163b65] flex flex-col rounded-xs select-text">
+                    {/* White Top Header Bar (80px) */}
+                    <div className="h-[80px] shrink-0 px-6 flex items-center justify-center bg-white border-b border-slate-100 select-text">
+                      <h3 className="font-serif-luxury text-[#163b65] text-2xl sm:text-[28px] uppercase tracking-wider font-normal select-text whitespace-nowrap">
                         {room.name}
                       </h3>
                     </div>
@@ -321,40 +321,42 @@ export default function Section3Rooms() {
                       />
 
                       {/* Bottom Dark Gradient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent flex flex-col justify-end p-6 sm:p-8 text-white select-text">
-                        <p className="text-sm sm:text-[16px] text-white/95 font-light leading-relaxed mb-3 min-h-[44px] line-clamp-2 select-text">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent flex flex-col justify-end p-6 sm:p-8 text-white select-text">
+                        <p className="text-sm sm:text-[16px] text-white/95 font-light leading-relaxed mb-4 select-text">
                           {room.desc}
                         </p>
 
-                        <ul className="space-y-1.5 text-sm sm:text-[16px] text-white/90 mb-5 font-light select-text">
-                          {room.features.map((feature, fIdx) => (
-                            <li key={fIdx} className="flex items-center gap-2 select-text">
-                              <span className="w-1.5 h-1.5 rounded-full bg-white inline-block shrink-0"></span>
-                              <span className="select-text">{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
+                        <div className="flex items-end justify-between gap-4 select-text">
+                          <ul className="space-y-1.5 text-sm sm:text-[15px] text-white/90 font-light select-text">
+                            {room.features.map((feature, fIdx) => (
+                              <li key={fIdx} className="flex items-center gap-2 select-text">
+                                <span className="w-1.5 h-1.5 rounded-full bg-white inline-block shrink-0"></span>
+                                <span className="select-text">{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
 
-                        <div>
-                          <button
-                            type="button"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              const el = document.getElementById("form-uu-dai");
-                              if (el) el.scrollIntoView({ behavior: "smooth" });
-                            }}
-                            className="bg-[#133e70] hover:bg-[#0e2c50] text-white px-8 py-2.5 rounded-xs text-xs sm:text-[13px] uppercase tracking-wider font-semibold transition-colors shadow-md cursor-pointer"
-                          >
-                            CHI TIẾT
-                          </button>
+                          <div className="shrink-0">
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                const el = document.getElementById("form-uu-dai");
+                                if (el) el.scrollIntoView({ behavior: "smooth" });
+                              }}
+                              className="bg-[#133e70] hover:bg-[#0e2c50] text-white px-7 py-2.5 rounded-xs text-xs sm:text-[13px] uppercase tracking-wider font-semibold transition-colors shadow-md cursor-pointer whitespace-nowrap"
+                            >
+                              CHI TIẾT
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 ) : (
-                  /* ================= Inactive Side Glass Card (matching Figma) ================= */
-                  <div className="w-full h-full border border-slate-700/80 pt-8 px-6 text-center relative bg-white/10 backdrop-blur-[2px] cursor-pointer hover:bg-white/30 hover:border-slate-900 transition-all duration-300 rounded-xs flex flex-col items-center justify-start select-none group shadow-sm hover:shadow-md">
-                    <span className="font-serif-luxury text-slate-900 text-base sm:text-xl uppercase tracking-wider font-medium transition-colors group-hover:text-[#133e70] whitespace-nowrap">
+                  /* ================= Inactive Side Transparent Card (matching Figma) ================= */
+                  <div className="w-full h-full border border-black/80 pt-9 px-6 text-center relative bg-transparent cursor-pointer hover:border-black hover:bg-black/[0.02] transition-all duration-300 rounded-xs flex flex-col items-center justify-start select-none group">
+                    <span className="font-serif-luxury text-black text-xl sm:text-[24px] lg:text-[26px] uppercase tracking-wider font-normal transition-colors group-hover:text-[#133e70] whitespace-nowrap">
                       {room.name}
                     </span>
                   </div>

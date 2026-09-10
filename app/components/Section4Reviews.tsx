@@ -94,15 +94,19 @@ export default function Section4Reviews() {
   const galleryItemRefs = React.useRef<(HTMLDivElement | null)[]>([]);
   const isProgrammaticScroll = React.useRef(false);
 
-  // Smooth scroll target photo to the center of viewport
-  const scrollToFeedback = (index: number) => {
+  // Smooth scroll target photo to the center of container ONLY (never moving the window scroll)
+  const scrollToFeedback = (index: number, smooth = true) => {
+    const container = galleryContainerRef.current;
     const el = galleryItemRefs.current[index];
-    if (el) {
+    if (container && el) {
       isProgrammaticScroll.current = true;
-      el.scrollIntoView({
-        behavior: "smooth",
-        inline: "center",
-        block: "nearest",
+      const containerWidth = container.clientWidth;
+      const elLeft = el.offsetLeft;
+      const elWidth = el.clientWidth;
+      const targetScrollLeft = elLeft - containerWidth / 2 + elWidth / 2;
+      container.scrollTo({
+        left: targetScrollLeft,
+        behavior: smooth ? "smooth" : "auto",
       });
       setTimeout(() => {
         isProgrammaticScroll.current = false;
@@ -110,12 +114,14 @@ export default function Section4Reviews() {
     }
   };
 
-  // Center the active photo on initial mount
+  // Center the active photo on initial mount on mobile ONLY (never touching window scroll)
   React.useEffect(() => {
-    const timer = setTimeout(() => {
-      scrollToFeedback(5);
-    }, 300);
-    return () => clearTimeout(timer);
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      const timer = setTimeout(() => {
+        scrollToFeedback(5, false);
+      }, 100);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const handlePrev = () => {
