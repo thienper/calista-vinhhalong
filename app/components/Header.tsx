@@ -7,12 +7,26 @@ import { ChevronDown, Menu, X } from "lucide-react";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [lang, setLang] = useState<"EN" | "VI">("VI");
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="w-full sticky top-0 z-50 bg-white shadow-xs">
+    <header
+      className={`w-full sticky top-0 z-50 bg-white transition-all duration-300 ${
+        isScrolled ? "shadow-md" : "shadow-xs"
+      }`}
+    >
       {/* 1. Menu phụ (Top Bar) */}
-      <div className="w-full bg-[#163b65] text-white text-[13px] py-1.5 px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto flex justify-end items-center gap-6">
+      <div className="w-full bg-[#163b65] text-white text-[13px] py-1.5 px-4 sm:px-6 xl:px-0">
+        <div className="max-w-[1200px] mx-auto flex justify-end items-center gap-6">
           {/* Phone */}
           <a
             href="tel:+84938319979"
@@ -65,18 +79,26 @@ export default function Header() {
 
       {/* 2. Menu chính (Main Navigation) */}
       <div className="w-full bg-white border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 h-22 flex items-center justify-between">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 xl:px-0 h-[66px] flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center py-2">
+          <Link
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className="flex items-center cursor-pointer transition-transform duration-200 active:scale-95"
+            title="Về đầu trang"
+          >
             <img
-              src="/image/Menu%20ch%C3%ADnh%20-%20Logo.png"
+              src="/image/logo-calista.png"
               alt="Calista Halong Bay Cruise"
-              className="h-16 sm:h-18 w-auto object-contain"
+              className="h-[50px] w-auto object-contain"
             />
           </Link>
 
           {/* Navigation Links - Desktop */}
-          <nav className="hidden lg:flex items-center gap-8 text-[13px] font-medium tracking-wide text-[#163b65]">
+          <nav className="hidden lg:flex items-center gap-7 text-[13px] font-medium tracking-wide text-[#163b65]">
             <Link
               href="#ve-chung-toi"
               className="hover:text-[#dfa968] transition-colors uppercase"
@@ -87,7 +109,7 @@ export default function Header() {
             <div className="relative group flex items-center gap-1 cursor-pointer hover:text-[#dfa968] transition-colors uppercase">
               <span>HẢI TRÌNH</span>
               <ChevronDown className="w-3.5 h-3.5 text-[#163b65] group-hover:text-[#dfa968] transition-colors" />
-              <div className="absolute top-full left-0 hidden group-hover:block bg-white shadow-lg rounded-md py-2 px-4 w-48 border border-slate-100">
+              <div className="absolute top-full left-0 hidden group-hover:block bg-white shadow-lg rounded-md py-2 px-4 w-48 border border-slate-100 z-50">
                 <Link href="#hai-trinh" className="block py-1.5 text-xs text-slate-700 hover:text-[#dfa968]">
                   Hải trình 2 Ngày 1 Đêm
                 </Link>
@@ -103,7 +125,7 @@ export default function Header() {
             <div className="relative group flex items-center gap-1 cursor-pointer hover:text-[#dfa968] transition-colors uppercase">
               <span>CABIN</span>
               <ChevronDown className="w-3.5 h-3.5 text-[#163b65] group-hover:text-[#dfa968] transition-colors" />
-              <div className="absolute top-full left-0 hidden group-hover:block bg-white shadow-lg rounded-md py-2 px-4 w-48 border border-slate-100">
+              <div className="absolute top-full left-0 hidden group-hover:block bg-white shadow-lg rounded-md py-2 px-4 w-48 border border-slate-100 z-50">
                 <Link href="#hang-phong" className="block py-1.5 text-xs text-slate-700 hover:text-[#dfa968]">
                   Calista President
                 </Link>
@@ -145,7 +167,7 @@ export default function Header() {
                 const el = document.getElementById("form-uu-dai");
                 if (el) el.scrollIntoView({ behavior: "smooth" });
               }}
-              className="btn-gold px-7 py-2.5 rounded-lg text-xs font-semibold tracking-wider uppercase transition-all duration-200 cursor-pointer"
+              className="btn-gold h-[34px] w-[125px] flex items-center justify-center rounded-[4px] text-[13px] font-semibold tracking-wider uppercase transition-all duration-200 cursor-pointer shadow-xs"
             >
               ĐẶT NGAY
             </button>

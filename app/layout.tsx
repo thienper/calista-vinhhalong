@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html
       lang="vi"
-      className={`${playfair.variable} ${montserrat.variable} h-full antialiased`}
+      className={`${playfair.variable} ${montserrat.variable} min-h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans bg-white text-slate-800 antialiased selection:bg-amber-100 selection:text-amber-900">
         {children}

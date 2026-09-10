@@ -32,7 +32,15 @@ export default function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
         {/* Top Logo Centered */}
         <div className="flex justify-center mb-16">
-          <Link href="/">
+          <Link
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className="cursor-pointer transition-transform duration-200 hover:scale-105 active:scale-95"
+            title="Cuộn lên đầu trang"
+          >
             <img
               src="/image/Footer%20%20-%20Logo.png"
               alt="Calista Halong Bay Cruise"

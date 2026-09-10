@@ -13,11 +13,15 @@
   --foreground: #1e293b;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html, body {
   background-color: #ffffff !important;
   color: #1e293b;
   font-family: var(--font-sans);
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .font-serif-luxury {

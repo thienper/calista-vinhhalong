@@ -30,11 +30,11 @@ export default function HeroBanner() {
   ];
 
   return (
-    <section className="relative w-full min-h-[580px] lg:min-h-[660px] flex flex-col items-center justify-center overflow-visible z-20">
+    <section className="relative w-full min-h-[640px] md:min-h-[760px] lg:h-[881px] flex flex-col items-center justify-center overflow-visible z-20">
       {/* Background Image with Dark Vignette/Overlay (isolated in overflow-hidden) */}
       <div className="absolute inset-0 overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000 scale-105"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700"
           style={{
             backgroundImage: `url('/image/%E1%BA%A3nh%20hero%20banner.png')`,
           }}
@@ -45,17 +45,17 @@ export default function HeroBanner() {
       </div>
 
       {/* Center Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 text-center flex flex-col items-center pb-20">
-        <h1 className="font-serif-luxury text-white text-5xl sm:text-6xl md:text-7xl lg:text-[86px] tracking-wider uppercase font-normal drop-shadow-md">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 text-center flex flex-col items-center pb-24 lg:pb-36">
+        <h1 className="font-serif-luxury text-white text-4xl sm:text-6xl md:text-8xl lg:text-[110px] xl:text-[144px] tracking-wider uppercase font-normal drop-shadow-md whitespace-nowrap leading-none">
           SUMMER TRAVEL
         </h1>
-        <p className="text-white text-base sm:text-xl md:text-2xl font-light mt-3 tracking-wide drop-shadow-sm">
+        <p className="text-white text-base sm:text-2xl md:text-3xl lg:text-[38px] xl:text-[48px] font-light mt-3 sm:mt-4 lg:mt-6 tracking-wide drop-shadow-sm whitespace-nowrap leading-tight">
           Giảm ngay 500k cho lần đầu đăng ký qua Website
         </p>
       </div>
 
       {/* Floating Glassmorphic Search Bar */}
-      <div className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 w-[92%] max-w-4xl z-30">
+      <div className="absolute bottom-8 sm:bottom-14 lg:bottom-24 left-1/2 -translate-x-1/2 w-[92%] max-w-[1200px] z-30">
         <div className="bg-[#12365e]/80 backdrop-blur-md rounded-xl p-3 sm:p-4 border border-white/25 shadow-2xl flex flex-col md:flex-row items-stretch md:items-center gap-3">
           {/* Select: Hải trình */}
           <div ref={dropdownRef} className="relative flex-1">
@@ -66,9 +66,8 @@ export default function HeroBanner() {
             >
               <span className="truncate">{selectedItinerary}</span>
               <ChevronDown
-                className={`w-4 h-4 ml-2 opacity-80 shrink-0 transition-transform duration-200 ${
-                  showItineraryDropdown ? "rotate-180" : ""
-                }`}
+                className={`w-4 h-4 ml-2 opacity-80 shrink-0 transition-transform duration-200 ${showItineraryDropdown ? "rotate-180" : ""
+                  }`}
               />
             </button>
 
