@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { ChevronDown, CheckCircle2 } from "lucide-react";
+import { ChevronDown, CheckCircle2, Check } from "lucide-react";
 
 export default function SectionForm() {
   const [email, setEmail] = useState("");
   const [travelerType, setTravelerType] = useState("");
   const [isOpenSelect, setIsOpenSelect] = useState(false);
+  const [openDirection, setOpenDirection] = useState<"down" | "up">("down");
   const [submitted, setSubmitted] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
 
@@ -24,12 +25,27 @@ export default function SectionForm() {
     };
   }, [isOpenSelect]);
 
+  const toggleSelect = () => {
+    if (!isOpenSelect && selectRef.current) {
+      const rect = selectRef.current.getBoundingClientRect();
+      const spaceBelow = window.innerHeight - rect.bottom;
+      // If space below is less than dropdown height (~290px) and space above is sufficient, open upwards
+      if (spaceBelow < 290 && rect.top > 290) {
+        setOpenDirection("up");
+      } else {
+        setOpenDirection("down");
+      }
+    }
+    setIsOpenSelect((prev) => !prev);
+  };
+
   const options = [
     "Solo Traveler",
     "Couple / Honeymoon",
     "Family with Kids",
     "Group of Friends",
     "Corporate / MICE",
+    "Luxury Private Charter",
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -47,7 +63,7 @@ export default function SectionForm() {
   return (
     <section
       id="form-uu-dai"
-      className="relative w-full py-20 lg:py-28 pb-28 lg:pb-36 overflow-visible z-20 bg-cover bg-center"
+      className="relative w-full py-20 lg:py-28 pb-32 sm:pb-36 lg:pb-44 overflow-visible z-20 bg-cover bg-center"
     >
       {/* Background Image isolated in overflow-hidden */}
       <div className="absolute inset-0 overflow-hidden">
@@ -106,7 +122,7 @@ export default function SectionForm() {
             <div ref={selectRef} className="relative z-30">
               <button
                 type="button"
-                onClick={() => setIsOpenSelect((prev) => !prev)}
+                onClick={toggleSelect}
                 className="w-full bg-transparent border border-white/75 rounded-lg px-5 py-3.5 text-white text-xs sm:text-sm flex items-center justify-between focus:outline-none hover:border-white transition-colors cursor-pointer"
               >
                 <span className={travelerType ? "text-white font-medium" : "text-white/75"}>
@@ -120,7 +136,11 @@ export default function SectionForm() {
               </button>
 
               {isOpenSelect && (
-                <div className="absolute top-full left-0 mt-2 w-full bg-white rounded-lg shadow-2xl py-2 z-50 border border-slate-200">
+                <div
+                  className={`absolute left-0 w-full bg-white rounded-xl shadow-2xl py-2 z-50 border border-slate-200/80 max-h-72 overflow-y-auto ${
+                    openDirection === "up" ? "bottom-full mb-2" : "top-full mt-2"
+                  }`}
+                >
                   {options.map((opt, idx) => (
                     <button
                       key={idx}
@@ -129,9 +149,16 @@ export default function SectionForm() {
                         setTravelerType(opt);
                         setIsOpenSelect(false);
                       }}
-                      className="w-full text-left px-5 py-3 text-xs sm:text-sm text-slate-800 hover:bg-amber-50 hover:text-amber-800 transition-colors cursor-pointer font-medium"
+                      className={`w-full text-left px-5 py-3 text-xs sm:text-sm transition-colors cursor-pointer flex items-center justify-between font-medium ${
+                        travelerType === opt
+                          ? "bg-amber-50 text-[#133e70] font-semibold"
+                          : "text-slate-700 hover:bg-slate-50 hover:text-slate-900"
+                      }`}
                     >
-                      {opt}
+                      <span>{opt}</span>
+                      {travelerType === opt && (
+                        <Check className="w-4 h-4 text-[#dfa968] shrink-0 ml-2" />
+                      )}
                     </button>
                   ))}
                 </div>

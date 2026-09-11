@@ -53,12 +53,12 @@ export default function Home() {
         </RevealOnScroll>
 
         {/* 9. Section Form: Đăng kí nhận thông tin ưu đãi */}
-        <RevealOnScroll>
+        <RevealOnScroll className="relative z-20">
           <SectionForm />
         </RevealOnScroll>
 
         {/* 10. Section FAQ: Câu hỏi thường gặp */}
-        <RevealOnScroll>
+        <RevealOnScroll className="relative z-10">
           <SectionFAQ />
         </RevealOnScroll>
       </main>
